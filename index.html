@@ -194,16 +194,22 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         
+        /* App Icon Logo Layout Rules */
         .work-details {
             display: flex;
             align-items: center;
             gap: 25px;
         }
         .company-logo {
-            width: 85px; 
-            height: 85px; 
+            width: 70px; 
+            height: 70px; 
             object-fit: contain;
             flex-shrink: 0; 
+            background-color: rgba(255, 255, 255, 0.95); /* Soft white background */
+            padding: 12px; /* Breathing room inside the box */
+            border-radius: 16px; /* Smooth, modern rounded corners */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Subtle drop shadow */
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         @media (max-width: 600px) {
@@ -289,7 +295,7 @@
         }
         
         .fade-in-scroll {
-            animation: fadeIn 0.8s ease-out;
+            animation: fadeIn 0.8s ease-out forwards;
         }
     </style>
 </head>
