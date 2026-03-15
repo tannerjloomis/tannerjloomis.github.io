@@ -9,7 +9,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
         :root {
-            /* Swapped pure black for a deep cosmic midnight blue */
             --bg-color: #0b0f19; 
             --surface-color: #131b2f; 
             --surface-hover: #1e2a47; 
@@ -45,7 +44,6 @@
             left: -10%;
             width: 70vw;
             height: 70vw;
-            /* Faint blue and purple gradient to look like a nebula */
             background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(139, 92, 246, 0.05) 30%, rgba(0,0,0,0) 70%);
             border-radius: 50%;
             z-index: -1;
@@ -98,4 +96,315 @@
         }
 
         .hero-image-container {
-            flex-
+            flex-shrink: 0;
+        }
+
+        .hero-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.05);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 60px 0;
+            }
+        }
+
+        .hero-greeting {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+            letter-spacing: -2px;
+        }
+        .hero h1 span {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        
+        /* Typewriter Cursor */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--text-muted);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin-top: 30px;
+        }
+
+        /* Section Headers */
+        h2.section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            margin: 80px 0 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 20px;
+        }
+
+        /* Work Experience Cards */
+        .work-grid {
+            display: grid;
+            gap: 20px;
+        }
+        .work-card {
+            background-color: var(--surface-color);
+            border: 1px solid rgba(255,255,255,0.03);
+            padding: 40px;
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-main);
+        }
+        .work-card:hover {
+            background-color: var(--surface-hover);
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .work-details {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .company-logo {
+            width: 85px; 
+            height: 85px; 
+            object-fit: contain;
+            flex-shrink: 0; 
+        }
+
+        @media (max-width: 600px) {
+            .work-details {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        .work-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .work-info p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        .work-arrow {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            transition: transform 0.3s ease, color 0.3s;
+        }
+        .work-card:hover .work-arrow {
+            transform: translateX(10px);
+            color: var(--text-main);
+        }
+
+        /* Skills/Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 80px;
+        }
+        .skill-pill {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            transition: all 0.3s;
+        }
+        .skill-pill:hover {
+            background: var(--text-main);
+            color: var(--bg-color);
+            border-color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 100px;
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .footer-cta {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+        .email-link {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 2px solid var(--text-main);
+            padding-bottom: 5px;
+            transition: opacity 0.3s;
+        }
+        .email-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in-scroll {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+        <nav>
+            <div class="logo">Tanner Loomis</div>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="mailto:your.email@example.com">Contact</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-greeting fade-in-scroll">Hello! I Am Tanner Loomis</span>
+                <h1 class="fade-in-scroll">
+                    An Account Executive who <br>
+                    <span><span id="typewriter-text"></span><span class="cursor">&nbsp;</span></span>
+                </h1>
+                <p class="hero-subtitle fade-in-scroll">
+                    Currently functioning in the enterprise tech industry. I create meaningful relationships that bridge the gap between complex business challenges and scalable solutions.
+                </p>
+            </div>
+            
+            <div class="hero-image-container fade-in-scroll">
+                <img src="Headshot1.jpeg" alt="Tanner Loomis Headshot" class="hero-image">
+            </div>
+        </section>
+
+        <section id="experience" class="fade-in-scroll">
+            <h2 class="section-title">Work Experience</h2>
+            
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-details">
+                        <img src="suse-logo.png" alt="SUSE Logo" class="company-logo">
+                        <div class="work-info">
+                            <h3>SUSE — Account Executive, Public Sector</h3>
+                            <p>Driving full-cycle enterprise sales and executing strategic account planning for Public Sector clients.</p>
+                            <p style="font-size: 0.85rem; margin-top: 10px; color: var(--text-muted);">May 2024 - Present</p>
+                        </div>
+                    </div>
+                    <div class="work-arrow">→</div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-details">
+                        <img src="total-expert-logo.png" alt="Total Expert Logo" class="company-logo">
+                        <div class="work-info">
+                            <h3>Total Expert — Sales Development Representative</h3>
+                            <p>Spearheaded outbound pipeline generation and qualified high-value leads.</p>
+                            <p style="font-size: 0.85rem; margin-top: 10px; color: var(--text-muted);">May 2023 - May 2024</p>
+                        </div>
+                    </div>
+                    <div class="work-arrow">→</div>
+                </div>
+                
+                <div class="work-card">
+                    <div class="work-details">
+                        <img src="calabrio-logo.png" alt="Calabrio Logo" class="company-logo">
+                        <div class="work-info">
+                            <h3>Calabrio — Business Development Representative</h3>
+                            <p>Drove top-of-funnel pipeline growth through strategic prospecting and outreach.</p>
+                            <p style="font-size: 0.85rem; margin-top: 10px; color: var(--text-muted);">June 2022 - May 2023</p>
+                        </div>
+                    </div>
+                    <div class="work-arrow">→</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="fade-in-scroll">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-container">
+                <div class="skill-pill">Enterprise Sales</div>
+                <div class="skill-pill">Public Sector Accounts</div>
+                <div class="skill-pill">Strategic Partnerships</div>
+                <div class="skill-pill">Contract Negotiation</div>
+                <div class="skill-pill">Pipeline Generation</div>
+                <div class="skill-pill">Salesforce / CRM</div>
+                <div class="skill-pill">Open Source Tech</div>
+                <div class="skill-pill">Territory Management</div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="fade-in-scroll">
+        <div class="container">
+            <div class="footer-cta">Have a project or role in mind?<br>Let's connect.</div>
+            <a href="mailto:your.email@example.com" class="email-link">your.email@example.com</a>
+            <p style="margin-top: 50px; color: var(--text-muted); font-size: 0.8rem;">
+                © 2026 Tanner Loomis. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textToType = "drives growth and builds strategic partnerships.";
+            const speed = 60; 
+            let i = 0;
+            
+            setTimeout(function typeWriter() {
+                if (i < textToType.length) {
+                    document.getElementById("typewriter-text").innerHTML += textToType.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }, 500); 
+        });
+    </script>
+</body>
+</html>
