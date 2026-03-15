@@ -161,7 +161,7 @@
             padding-bottom: 20px;
         }
 
-        /* Work Experience Cards */
+        /* Work Experience Cards with Logos */
         .work-grid {
             display: grid;
             gap: 20px;
@@ -184,6 +184,33 @@
             border-color: rgba(255,255,255,0.2);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
+        
+        /* New Logo Layout Rules */
+        .work-details {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .company-logo {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0; /* Prevents the logo from squishing */
+        }
+
+        /* Mobile adjustment for Job Cards */
+        @media (max-width: 600px) {
+            .work-details {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
         .work-info h3 {
             margin: 0 0 10px 0;
             font-size: 1.5rem;
@@ -302,28 +329,37 @@
             
             <div class="work-grid">
                 <div class="work-card">
-                    <div class="work-info">
-                        <h3>SUSE — Account Executive, Public Sector</h3>
-                        <p>Driving full-cycle enterprise sales and executing strategic account planning for Public Sector clients.</p>
-                        <p style="font-size: 0.85rem; margin-top: 10px; color: #555;">May 2024 - Present</p>
+                    <div class="work-details">
+                        <img src="suse-logo.png" alt="SUSE Logo" class="company-logo">
+                        <div class="work-info">
+                            <h3>SUSE — Account Executive, Public Sector</h3>
+                            <p>Driving full-cycle enterprise sales and executing strategic account planning for Public Sector clients.</p>
+                            <p style="font-size: 0.85rem; margin-top: 10px; color: #555;">May 2024 - Present</p>
+                        </div>
                     </div>
                     <div class="work-arrow">→</div>
                 </div>
 
                 <div class="work-card">
-                    <div class="work-info">
-                        <h3>Total Expert — Sales Development Representative</h3>
-                        <p>Spearheaded outbound pipeline generation and qualified high-value leads.</p>
-                        <p style="font-size: 0.85rem; margin-top: 10px; color: #555;">May 2023 - May 2024</p>
+                    <div class="work-details">
+                        <img src="total-expert-logo.png" alt="Total Expert Logo" class="company-logo">
+                        <div class="work-info">
+                            <h3>Total Expert — Sales Development Representative</h3>
+                            <p>Spearheaded outbound pipeline generation and qualified high-value leads.</p>
+                            <p style="font-size: 0.85rem; margin-top: 10px; color: #555;">May 2023 - May 2024</p>
+                        </div>
                     </div>
                     <div class="work-arrow">→</div>
                 </div>
                 
                 <div class="work-card">
-                    <div class="work-info">
-                        <h3>Calabrio — Business Development Representative</h3>
-                        <p>Drove top-of-funnel pipeline growth through strategic prospecting and outreach.</p>
-                        <p style="font-size: 0.85rem; margin-top: 10px; color: #555;">June 2022 - May 2023</p>
+                    <div class="work-details">
+                        <img src="calabrio-logo.png" alt="Calabrio Logo" class="company-logo">
+                        <div class="work-info">
+                            <h3>Calabrio — Business Development Representative</h3>
+                            <p>Drove top-of-funnel pipeline growth through strategic prospecting and outreach.</p>
+                            <p style="font-size: 0.85rem; margin-top: 10px; color: #555;">June 2022 - May 2023</p>
+                        </div>
                     </div>
                     <div class="work-arrow">→</div>
                 </div>
@@ -357,12 +393,10 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // The text you want to type out
             const textToType = "drives growth and builds strategic partnerships.";
-            const speed = 60; // Typing speed in milliseconds
+            const speed = 60; 
             let i = 0;
             
-            // Add a slight delay before typing starts so the fade-in finishes first
             setTimeout(function typeWriter() {
                 if (i < textToType.length) {
                     document.getElementById("typewriter-text").innerHTML += textToType.charAt(i);
