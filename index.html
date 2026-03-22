@@ -117,14 +117,13 @@
             border-color: rgba(255,255,255,0.3);
         }
 
-        /* Action Buttons */
+        /* Hero Actions & Buttons */
         .hero-actions {
             margin-top: 30px;
             display: flex;
             gap: 15px;
             align-items: center;
         }
-        
         .btn-primary {
             background-color: var(--text-main);
             color: var(--bg-color);
@@ -134,12 +133,10 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
         .btn-primary:hover {
             background-color: var(--text-muted);
             transform: translateY(-2px);
         }
-
         .btn-social {
             display: flex;
             align-items: center;
@@ -152,13 +149,11 @@
             color: var(--text-main);
             transition: all 0.3s ease;
         }
-
         .btn-social:hover {
-            background-color: #0A66C2; /* LinkedIn Blue */
+            background-color: #0A66C2; 
             border-color: #0A66C2;
             transform: translateY(-2px);
         }
-
         .btn-social svg {
             width: 20px;
             height: 20px;
@@ -176,6 +171,11 @@
             }
             .hero-actions {
                 justify-content: center;
+            }
+            footer .container {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 20px;
             }
         }
 
@@ -389,19 +389,7 @@
         footer {
             margin-top: 100px;
             padding: 80px 0;
-            text-align: left;
             border-top: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-        
-        @media (max-width: 768px) {
-            footer {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 40px;
-            }
         }
 
         /* Animations */
@@ -562,4 +550,29 @@
                 © 2026 Tanner Loomis. All rights reserved.
             </p>
             <a href="https://www.linkedin.com/in/tannerloomis/" target="_blank" class="btn-social" aria-label="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.2
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textElement = document.getElementById("typewriter-text");
+            const textToType = "drives growth and builds strategic partnerships.";
+            const speed = 35; // Sped up to prevent browser throttling
+            let i = 0;
+            
+            // Failsafe: clears the box before starting
+            textElement.innerHTML = "";
+            
+            setTimeout(function typeWriter() {
+                if (i < textToType.length) {
+                    textElement.innerHTML += textToType.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }, 200); // Kicks off much faster after the page loads
+        });
+    </script>
+</body>
+</html>
